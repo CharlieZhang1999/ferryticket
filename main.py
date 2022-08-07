@@ -25,8 +25,9 @@ sct_token = ""  # Sendkey
 startSite = "SK"  # 始发站点
 endSite = "HKA"  # 目标站点
 startDate = "2022-08-24"  # 船票搜索日期
-endDate = "2022-08-24"
+endDate = "2022-08-30"
 show_available_only = True  # 只显示有票的日期
+iteration = True
 # ==================================
 
 if __name__ == '__main__':
@@ -65,7 +66,7 @@ if __name__ == '__main__':
 
     print(f'正在查找{startDate}到{endDate}之间的可用船票')
 
-    while True:
+    while iteration:
         for date in toDate:
             ret = request_sail_ticket(request_param={
                 "startSite": startSite,  # 蛇口港
@@ -79,7 +80,8 @@ if __name__ == '__main__':
                     bark_push(token=bark_token, title="船票Get", content=ret)
                 if enable_serverchan and sct_token != "":
                     serverchan_push(token=sct_token, title="船票Get", desp=ret)
-
+                iteration = False
+                break
             elif ret == -1:
                 print(f'{date}:爬取失败')
             else:
