@@ -3,6 +3,7 @@
 # @FileName  :main.py
 # @Time      :2021/6/20 7:00 PM
 # @Author    :Eason Tang
+from pickle import TRUE
 import sys
 
 from helper.ticket_helper import request_sail_ticket, create_assist_date
@@ -15,16 +16,16 @@ import time
 # Github Action
 enable_gh_action = False  # 启用GitHub Action
 # Bark Push
-enable_bark = False  # 启用Bark推送
-bark_token = ""  # Bark推送ID
+enable_bark = True  # 启用Bark推送
+bark_token = "ZEuy8diSuFYBGPFgs5iBL4/有票了?sound=alarm"  # Bark推送ID
 # Serverchan Push
 enable_serverchan = False  # 启用Server酱(Turbo)推送
 sct_token = ""  # Sendkey
 # Ticket Stuff
 startSite = "SK"  # 始发站点
 endSite = "HKA"  # 目标站点
-startDate = "2022-04-20"  # 船票搜索日期
-endDate = "2022-04-30"
+startDate = "2022-08-24"  # 船票搜索日期
+endDate = "2022-08-24"
 show_available_only = True  # 只显示有票的日期
 # ==================================
 
